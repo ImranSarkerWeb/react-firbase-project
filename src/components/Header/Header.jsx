@@ -15,6 +15,9 @@ const Header = () => {
         <Link to="/" className="btn btn-ghost normal-case text-xl">
           AuthMaster
         </Link>
+        <Link to="/orders" className="btn btn-ghost normal-case text-xl">
+          Orders
+        </Link>
         <Link to="/login" className="btn btn-ghost normal-case text-xl">
           Login
         </Link>
