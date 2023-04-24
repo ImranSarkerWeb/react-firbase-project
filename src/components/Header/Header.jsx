@@ -18,6 +18,11 @@ const Header = () => {
         <Link to="/orders" className="btn btn-ghost normal-case text-xl">
           Orders
         </Link>
+        {user && (
+          <Link to="/profile" className="btn btn-ghost normal-case text-xl">
+            Profile
+          </Link>
+        )}
         <Link to="/login" className="btn btn-ghost normal-case text-xl">
           Login
         </Link>
