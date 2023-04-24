@@ -1,8 +1,22 @@
-import React from "react";
+import React, { useContext } from "react";
+import { AuthContext } from "../providers/AuthProviders";
 
 const Login = () => {
+  const { signIn } = useContext(AuthContext);
+  const handleSignIn = (e) => {
+    e.preventDefault();
+    const form = e.target;
+    const email = form.email.value;
+    const password = form.password.value;
+    signIn(email, password)
+      .then((result) => {
+        const loggedUser = result.user;
+        console.log(loggedUser);
+      })
+      .catch((error) => console.log(error.message));
+  };
   return (
-    <div className="hero min-h-screen bg-base-200">
+    <form onSubmit={handleSignIn} className="hero min-h-screen bg-base-200">
       <div className="hero-content flex-col lg:flex-row-reverse">
         <div className="text-center lg:text-left">
           <h1 className="text-5xl font-bold">Login now!</h1>
@@ -16,6 +30,7 @@ const Login = () => {
               <input
                 type="text"
                 placeholder="email"
+                name="email"
                 className="input input-bordered"
               />
             </div>
@@ -24,7 +39,8 @@ const Login = () => {
                 <span className="label-text">Password</span>
               </label>
               <input
-                type="text"
+                type="password"
+                name="password"
                 placeholder="password"
                 className="input input-bordered"
               />
@@ -40,7 +56,7 @@ const Login = () => {
           </div>
         </div>
       </div>
-    </div>
+    </form>
   );
 };
 
